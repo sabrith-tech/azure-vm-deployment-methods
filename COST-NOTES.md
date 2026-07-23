@@ -13,7 +13,7 @@
 |---|---|---|
 | Portal | ~10 min | ~$0.002 |
 | CLI | ~8 min | ~$0.001 |
-| Powershell0 |~5 mins| ~$0.0096|
+| Powershell |~5 mins| ~0.096 |
 
 ## Total spend for this project
 $__ out of $100 student credit
