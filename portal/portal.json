@@ -1,0 +1,96 @@
+{
+    "authorization": {
+        "action": "Microsoft.Resources/deployments/validate/action",
+        "scope": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourceGroups/my-first-vm_group/providers/Microsoft.Resources/deployments/CreateVirtualMachine-my-first-vm"
+    },
+    "caller": "surentharansarathy@outlook.com",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/cde55d5d-db27-40cb-88b1-4713f699dc72/",
+        "iat": "1784642971",
+        "nbf": "1784642971",
+        "exp": "1784646914",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "acrs": "p1",
+        "aio": "AfQAC/8cAAAAHZ/e6AAI10l+V9A5BwwF0A6rdyJyZi7gF/ztBvY6tToKpAPPJMjyfmnJbLyMsWYMmY+w1NfsHitCtKIL2IdRtFm6GkP4tkfID+3F4T2cWjtyTJCyD/hTLH16iIDzQ2Zdbxxpm7DZDKgGDUtZgrCir9EEUbgPVbmF94xIgxoJP3FjecT5cX1t19XYmLuDdllTuXeThQoaGMxPA23eCXqwy2VqGQUNBVHjvWzm70bwRlmMTVZYu1ReqBuZnmuBDDoqIS7iNQjAqUOpLw1PlZghR3vPSOi1D4y7OARzX8ZuYNPPjGQa4XrJ2Pzuh2Q/VbHi",
+        "altsecid": "1:live.com:0003000057B8E1CA",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd,mfa",
+        "appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+        "appidacr": "0",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "surentharansarathy@outlook.com",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "sarathi",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "surentharan",
+        "groups": "cd2a4ffc-6751-4a0d-8712-bf3ed0242b53",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "live.com",
+        "idtyp": "user",
+        "ipaddr": "38.188.181.249",
+        "name": "surentharan sarathi",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "c5e6c42a-7ae8-4de2-9071-a34d1901b130",
+        "puid": "1003200613164BA8",
+        "rh": "1.AXAAXV3lzSfby0CIsUcT9pncckZIf3kAutdPukPawfj2MBMAAC1wAA.",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "sid": "006dbdda-2980-14d6-16c3-bd17e3902f70",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "ME0In759KMbiYtv-XLC7wXR86C4n1LueF4Nl83h4m34",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "cde55d5d-db27-40cb-88b1-4713f699dc72",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "live.com#surentharansarathy@outlook.com",
+        "uti": "02caVaEnW02Ysjg8mo4SAA",
+        "ver": "1.0",
+        "wids": "62e90394-69f5-4237-9190-012177145e10",
+        "xms_act_fct": "5 3",
+        "xms_edov": "true",
+        "xms_ftd": "8UnDnP51xkt11AJ2D1Da2BKrP4fVdvF17MhK1yztSl0BamFwYW5lYXN0LWRzbXM",
+        "xms_idrel": "2 1",
+        "xms_sub_fct": "16 3",
+        "xms_tcdt": "1784210069"
+    },
+    "correlationId": "2785cce5-5308-4c8b-ba79-d641b65fd4d5",
+    "description": "",
+    "eventDataId": "600ee2ec-dc7e-42a0-a5cb-d74b3dc49c71",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2026-07-21T14:37:41.4766335Z",
+    "id": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourceGroups/my-first-vm_group/providers/Microsoft.Resources/deployments/CreateVirtualMachine-my-first-vm/events/600ee2ec-dc7e-42a0-a5cb-d74b3dc49c71/ticks/639202414614766335",
+    "level": "Informational",
+    "operationId": "631e6b69-01a0-4cb7-a65f-cf20b405d232",
+    "operationName": {
+        "value": "Microsoft.Resources/deployments/validate/action",
+        "localizedValue": "Validate Deployment"
+    },
+    "resourceGroupName": "my-first-vm_group",
+    "resourceProviderName": {
+        "value": "Microsoft.Resources",
+        "localizedValue": "Microsoft Resources"
+    },
+    "resourceType": {
+        "value": "Microsoft.Resources/deployments",
+        "localizedValue": "Microsoft.Resources/deployments"
+    },
+    "resourceId": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourceGroups/my-first-vm_group/providers/Microsoft.Resources/deployments/CreateVirtualMachine-my-first-vm",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "OK",
+        "localizedValue": "OK (HTTP Status Code: 200)"
+    },
+    "submissionTimestamp": "2026-07-21T14:39:19Z",
+    "subscriptionId": "fe097717-d522-4cd6-afac-5946610885b2",
+    "tenantId": "cde55d5d-db27-40cb-88b1-4713f699dc72",
+    "properties": {
+        "statusCode": "OK",
+        "serviceRequestId": null,
+        "eventCategory": "Administrative",
+        "entity": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourceGroups/my-first-vm_group/providers/Microsoft.Resources/deployments/CreateVirtualMachine-my-first-vm",
+        "message": "Microsoft.Resources/deployments/validate/action",
+        "hierarchy": "cde55d5d-db27-40cb-88b1-4713f699dc72/fe097717-d522-4cd6-afac-5946610885b2"
+    },
+    "relatedEvents": []
+}
