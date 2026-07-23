@@ -1,637 +1,94 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "sshPublicKeys_vmpskey_name": {
-            "defaultValue": "vmpskey",
-            "type": "string"
-        },
-        "virtualMachines_vm_ps_demo_name": {
-            "defaultValue": "vm-ps-demo",
-            "type": "string"
-        },
-        "virtualNetworks_vm_ps_demo_name": {
-            "defaultValue": "vm-ps-demo",
-            "type": "string"
-        },
-        "networkInterfaces_vm_ps_demo_name": {
-            "defaultValue": "vm-ps-demo",
-            "type": "string"
-        },
-        "publicIPAddresses_vm_ps_demo_ip_name": {
-            "defaultValue": "vm-ps-demo-ip",
-            "type": "string"
-        },
-        "virtualNetworks_vm_ps_demo_vnet_name": {
-            "defaultValue": "vm-ps-demo-vnet",
-            "type": "string"
-        },
-        "networkInterfaces_vm_ps_demo_nic_name": {
-            "defaultValue": "vm-ps-demo-nic",
-            "type": "string"
-        },
-        "networkSecurityGroups_vm_ps_demo_name": {
-            "defaultValue": "vm-ps-demo",
-            "type": "string"
-        },
-        "networkSecurityGroups_vm_ps_demo_nsg_name": {
-            "defaultValue": "vm-ps-demo-nsg",
-            "type": "string"
-        },
-        "storageAccounts_azurergvmvmp072307290_name": {
-            "defaultValue": "azurergvmvmp072307290",
-            "type": "string"
-        },
-        "storageAccounts_azurergvmvmp072307350_name": {
-            "defaultValue": "azurergvmvmp072307350",
-            "type": "string"
-        }
+    "authorization": {
+        "action": "Microsoft.Network/networkInterfaces/write",
+        "scope": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourceGroups/rg-vm-ps/providers/Microsoft.Network/networkInterfaces/vm-ps-demo"
     },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Compute/sshPublicKeys",
-            "apiVersion": "2021-03-01",
-            "name": "[parameters('sshPublicKeys_vmpskey_name')]",
-            "location": "centralindia",
-            "properties": {}
-        },
-        {
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "apiVersion": "2017-06-01",
-            "name": "[parameters('networkSecurityGroups_vm_ps_demo_name')]",
-            "location": "centralindia",
-            "properties": {
-                "securityRules": [
-                    {
-                        "name": "[concat(parameters('networkSecurityGroups_vm_ps_demo_name'), '22')]",
-                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_vm_ps_demo_name'), concat(parameters('networkSecurityGroups_vm_ps_demo_name'), '22'))]",
-                        "properties": {
-                            "protocol": "Tcp",
-                            "sourcePortRange": "*",
-                            "destinationPortRange": "22",
-                            "sourceAddressPrefix": "*",
-                            "destinationAddressPrefix": "*",
-                            "access": "Allow",
-                            "priority": 1000,
-                            "direction": "Inbound",
-                            "sourcePortRanges": [],
-                            "destinationPortRanges": [],
-                            "sourceAddressPrefixes": [],
-                            "destinationAddressPrefixes": []
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "apiVersion": "2017-06-01",
-            "name": "[parameters('networkSecurityGroups_vm_ps_demo_nsg_name')]",
-            "location": "centralindia",
-            "properties": {
-                "flushConnection": false,
-                "securityRules": [
-                    {
-                        "name": "AllowSSH",
-                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_vm_ps_demo_nsg_name'), 'AllowSSH')]",
-                        "properties": {
-                            "protocol": "Tcp",
-                            "sourcePortRange": "*",
-                            "destinationPortRange": "22",
-                            "sourceAddressPrefix": "*",
-                            "destinationAddressPrefix": "*",
-                            "access": "Allow",
-                            "priority": 1001,
-                            "direction": "Inbound",
-                            "sourcePortRanges": [],
-                            "destinationPortRanges": [],
-                            "sourceAddressPrefixes": [],
-                            "destinationAddressPrefixes": []
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2017-08-01",
-            "name": "[parameters('publicIPAddresses_vm_ps_demo_ip_name')]",
-            "location": "centralindia",
-            "sku": {
-                "name": "Standard",
-                "tier": "Regional"
-            },
-            "properties": {
-                "ipAddress": "20.219.135.52",
-                "publicIPAddressVersion": "IPv4",
-                "publicIPAllocationMethod": "Static",
-                "idleTimeoutInMinutes": 4,
-                "ipTags": [],
-                "ddosSettings": {
-                    "protectionMode": "VirtualNetworkInherited"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Network/virtualNetworks",
-            "apiVersion": "2025-07-01",
-            "name": "[parameters('virtualNetworks_vm_ps_demo_name')]",
-            "location": "centralindia",
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "192.168.0.0/16"
-                    ]
-                },
-                "privateEndpointVNetPolicies": "Disabled",
-                "subnets": [
-                    {
-                        "name": "[parameters('virtualNetworks_vm_ps_demo_name')]",
-                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_vm_ps_demo_name'), parameters('virtualNetworks_vm_ps_demo_name'))]",
-                        "properties": {
-                            "addressPrefix": "192.168.1.0/24",
-                            "delegations": [],
-                            "privateEndpointNetworkPolicies": "Disabled",
-                            "privateLinkServiceNetworkPolicies": "Enabled"
-                        }
-                    }
-                ],
-                "virtualNetworkPeerings": [],
-                "enableDdosProtection": false
-            }
-        },
-        {
-            "type": "Microsoft.Network/virtualNetworks",
-            "apiVersion": "2025-07-01",
-            "name": "[parameters('virtualNetworks_vm_ps_demo_vnet_name')]",
-            "location": "centralindia",
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "10.0.0.0/16"
-                    ]
-                },
-                "privateEndpointVNetPolicies": "Disabled",
-                "subnets": [
-                    {
-                        "name": "default",
-                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_vm_ps_demo_vnet_name'), 'default')]",
-                        "properties": {
-                            "addressPrefix": "10.0.0.0/24",
-                            "serviceEndpoints": [],
-                            "delegations": [],
-                            "privateEndpointNetworkPolicies": "Disabled",
-                            "privateLinkServiceNetworkPolicies": "Enabled"
-                        }
-                    }
-                ],
-                "virtualNetworkPeerings": [],
-                "enableDdosProtection": false
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2026-04-01",
-            "name": "[parameters('storageAccounts_azurergvmvmp072307290_name')]",
-            "location": "centralindia",
-            "sku": {
-                "name": "Standard_GRS",
-                "tier": "Standard"
-            },
-            "kind": "Storage",
-            "properties": {
-                "allowCrossTenantReplication": false,
-                "minimumTlsVersion": "TLS1_0",
-                "allowBlobPublicAccess": false,
-                "networkAcls": {
-                    "ipv6Rules": [],
-                    "bypass": "None",
-                    "virtualNetworkRules": [],
-                    "ipRules": [],
-                    "defaultAction": "Allow"
-                },
-                "supportsHttpsTrafficOnly": true,
-                "encryption": {
-                    "services": {
-                        "file": {
-                            "keyType": "Account",
-                            "enabled": true
-                        },
-                        "blob": {
-                            "keyType": "Account",
-                            "enabled": true
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                },
-                "accessTier": "Hot"
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2026-04-01",
-            "name": "[parameters('storageAccounts_azurergvmvmp072307350_name')]",
-            "location": "centralindia",
-            "sku": {
-                "name": "Standard_GRS",
-                "tier": "Standard"
-            },
-            "kind": "Storage",
-            "properties": {
-                "allowCrossTenantReplication": false,
-                "minimumTlsVersion": "TLS1_0",
-                "allowBlobPublicAccess": false,
-                "networkAcls": {
-                    "ipv6Rules": [],
-                    "bypass": "None",
-                    "virtualNetworkRules": [],
-                    "ipRules": [],
-                    "defaultAction": "Allow"
-                },
-                "supportsHttpsTrafficOnly": true,
-                "encryption": {
-                    "services": {
-                        "file": {
-                            "keyType": "Account",
-                            "enabled": true
-                        },
-                        "blob": {
-                            "keyType": "Account",
-                            "enabled": true
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                },
-                "accessTier": "Hot"
-            }
-        },
-        {
-            "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2025-11-01",
-            "name": "[parameters('virtualMachines_vm_ps_demo_name')]",
-            "location": "centralindia",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vm_ps_demo_name'))]"
-            ],
-            "properties": {
-                "hardwareProfile": {
-                    "vmSize": "Standard_D2s_v3"
-                },
-                "storageProfile": {
-                    "imageReference": {
-                        "publisher": "Canonical",
-                        "offer": "0001-com-ubuntu-server-jammy",
-                        "sku": "22_04-lts-gen2",
-                        "version": "latest"
-                    },
-                    "osDisk": {
-                        "osType": "Linux",
-                        "name": "[concat(parameters('virtualMachines_vm_ps_demo_name'), '_OsDisk_1_55666565af864b969b17596627be6adc')]",
-                        "createOption": "FromImage",
-                        "caching": "ReadWrite",
-                        "managedDisk": {
-                            "storageAccountType": "Premium_LRS",
-                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_vm_ps_demo_name'), '_OsDisk_1_55666565af864b969b17596627be6adc'))]"
-                        },
-                        "deleteOption": "Detach",
-                        "diskSizeGB": 30
-                    },
-                    "dataDisks": [],
-                    "diskControllerType": "SCSI",
-                    "alignRegionalDisksToVMZone": false
-                },
-                "osProfile": {
-                    "computerName": "[parameters('virtualMachines_vm_ps_demo_name')]",
-                    "linuxConfiguration": {
-                        "disablePasswordAuthentication": false,
-                        "provisionVMAgent": true,
-                        "patchSettings": {
-                            "patchMode": "ImageDefault",
-                            "assessmentMode": "ImageDefault"
-                        }
-                    },
-                    "secrets": [],
-                    "allowExtensionOperations": true,
-                    "requireGuestProvisionSignal": true,
-                    "adminUsername": "vmpsdemo"
-                },
-                "securityProfile": {
-                    "securityType": "Standard"
-                },
-                "networkProfile": {
-                    "networkInterfaces": [
-                        {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vm_ps_demo_name'))]"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-            "apiVersion": "2025-07-01",
-            "name": "[concat(parameters('networkSecurityGroups_vm_ps_demo_nsg_name'), '/AllowSSH')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vm_ps_demo_nsg_name'))]"
-            ],
-            "properties": {
-                "protocol": "Tcp",
-                "sourcePortRange": "*",
-                "destinationPortRange": "22",
-                "sourceAddressPrefix": "*",
-                "destinationAddressPrefix": "*",
-                "access": "Allow",
-                "priority": 1001,
-                "direction": "Inbound",
-                "sourcePortRanges": [],
-                "destinationPortRanges": [],
-                "sourceAddressPrefixes": [],
-                "destinationAddressPrefixes": []
-            }
-        },
-        {
-            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-            "apiVersion": "2025-07-01",
-            "name": "[concat(parameters('networkSecurityGroups_vm_ps_demo_name'), '/', parameters('networkSecurityGroups_vm_ps_demo_name'), '22')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vm_ps_demo_name'))]"
-            ],
-            "properties": {
-                "protocol": "Tcp",
-                "sourcePortRange": "*",
-                "destinationPortRange": "22",
-                "sourceAddressPrefix": "*",
-                "destinationAddressPrefix": "*",
-                "access": "Allow",
-                "priority": 1000,
-                "direction": "Inbound",
-                "sourcePortRanges": [],
-                "destinationPortRanges": [],
-                "sourceAddressPrefixes": [],
-                "destinationAddressPrefixes": []
-            }
-        },
-        {
-            "type": "Microsoft.Network/virtualNetworks/subnets",
-            "apiVersion": "2025-07-01",
-            "name": "[concat(parameters('virtualNetworks_vm_ps_demo_vnet_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_vm_ps_demo_vnet_name'))]"
-            ],
-            "properties": {
-                "addressPrefix": "10.0.0.0/24",
-                "serviceEndpoints": [],
-                "delegations": [],
-                "privateEndpointNetworkPolicies": "Disabled",
-                "privateLinkServiceNetworkPolicies": "Enabled"
-            }
-        },
-        {
-            "type": "Microsoft.Network/virtualNetworks/subnets",
-            "apiVersion": "2025-07-01",
-            "name": "[concat(parameters('virtualNetworks_vm_ps_demo_name'), '/', parameters('virtualNetworks_vm_ps_demo_name'))]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_vm_ps_demo_name'))]"
-            ],
-            "properties": {
-                "addressPrefix": "192.168.1.0/24",
-                "delegations": [],
-                "privateEndpointNetworkPolicies": "Disabled",
-                "privateLinkServiceNetworkPolicies": "Enabled"
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts/blobServices",
-            "apiVersion": "2026-04-01",
-            "name": "[concat(parameters('storageAccounts_azurergvmvmp072307290_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_azurergvmvmp072307290_name'))]"
-            ],
-            "sku": {
-                "name": "Standard_GRS",
-                "tier": "Standard"
-            },
-            "properties": {
-                "staticWebsite": {
-                    "enabled": false
-                },
-                "cors": {
-                    "corsRules": []
-                },
-                "deleteRetentionPolicy": {
-                    "allowPermanentDelete": false,
-                    "enabled": false
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts/blobServices",
-            "apiVersion": "2026-04-01",
-            "name": "[concat(parameters('storageAccounts_azurergvmvmp072307350_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_azurergvmvmp072307350_name'))]"
-            ],
-            "sku": {
-                "name": "Standard_GRS",
-                "tier": "Standard"
-            },
-            "properties": {
-                "staticWebsite": {
-                    "enabled": false
-                },
-                "cors": {
-                    "corsRules": []
-                },
-                "deleteRetentionPolicy": {
-                    "allowPermanentDelete": false,
-                    "enabled": false
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts/fileServices",
-            "apiVersion": "2026-04-01",
-            "name": "[concat(parameters('storageAccounts_azurergvmvmp072307290_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_azurergvmvmp072307290_name'))]"
-            ],
-            "sku": {
-                "name": "Standard_GRS",
-                "tier": "Standard"
-            },
-            "properties": {
-                "protocolSettings": {
-                    "smb": {}
-                },
-                "cors": {
-                    "corsRules": []
-                },
-                "shareDeleteRetentionPolicy": {
-                    "enabled": true,
-                    "days": 7
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts/fileServices",
-            "apiVersion": "2026-04-01",
-            "name": "[concat(parameters('storageAccounts_azurergvmvmp072307350_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_azurergvmvmp072307350_name'))]"
-            ],
-            "sku": {
-                "name": "Standard_GRS",
-                "tier": "Standard"
-            },
-            "properties": {
-                "protocolSettings": {
-                    "smb": {}
-                },
-                "cors": {
-                    "corsRules": []
-                },
-                "shareDeleteRetentionPolicy": {
-                    "enabled": true,
-                    "days": 7
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts/queueServices",
-            "apiVersion": "2026-04-01",
-            "name": "[concat(parameters('storageAccounts_azurergvmvmp072307290_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_azurergvmvmp072307290_name'))]"
-            ],
-            "properties": {
-                "cors": {
-                    "corsRules": []
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts/queueServices",
-            "apiVersion": "2026-04-01",
-            "name": "[concat(parameters('storageAccounts_azurergvmvmp072307350_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_azurergvmvmp072307350_name'))]"
-            ],
-            "properties": {
-                "cors": {
-                    "corsRules": []
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts/tableServices",
-            "apiVersion": "2026-04-01",
-            "name": "[concat(parameters('storageAccounts_azurergvmvmp072307290_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_azurergvmvmp072307290_name'))]"
-            ],
-            "properties": {
-                "cors": {
-                    "corsRules": []
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts/tableServices",
-            "apiVersion": "2026-04-01",
-            "name": "[concat(parameters('storageAccounts_azurergvmvmp072307350_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_azurergvmvmp072307350_name'))]"
-            ],
-            "properties": {
-                "cors": {
-                    "corsRules": []
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2025-07-01",
-            "name": "[parameters('networkInterfaces_vm_ps_demo_name')]",
-            "location": "centralindia",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_vm_ps_demo_name'), parameters('virtualNetworks_vm_ps_demo_name'))]",
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vm_ps_demo_name'))]"
-            ],
-            "kind": "Regular",
-            "properties": {
-                "ipConfigurations": [
-                    {
-                        "name": "[parameters('networkInterfaces_vm_ps_demo_name')]",
-                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vm_ps_demo_name')), concat('/ipConfigurations/', parameters('networkInterfaces_vm_ps_demo_name')))]",
-                        "properties": {
-                            "privateIPAddress": "192.168.1.4",
-                            "privateIPAllocationMethod": "Dynamic",
-                            "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_vm_ps_demo_name'), parameters('virtualNetworks_vm_ps_demo_name'))]"
-                            },
-                            "primary": true,
-                            "privateIPAddressVersion": "IPv4"
-                        }
-                    }
-                ],
-                "dnsSettings": {
-                    "dnsServers": []
-                },
-                "enableAcceleratedNetworking": false,
-                "enableIPForwarding": false,
-                "disableTcpStateTracking": false,
-                "networkSecurityGroup": {
-                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vm_ps_demo_name'))]"
-                },
-                "nicType": "Standard",
-                "auxiliaryMode": "None",
-                "auxiliarySku": "None"
-            }
-        },
-        {
-            "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2025-07-01",
-            "name": "[parameters('networkInterfaces_vm_ps_demo_nic_name')]",
-            "location": "centralindia",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_vm_ps_demo_ip_name'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_vm_ps_demo_vnet_name'), 'default')]",
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vm_ps_demo_nsg_name'))]"
-            ],
-            "kind": "Regular",
-            "properties": {
-                "ipConfigurations": [
-                    {
-                        "name": "ipconfig1",
-                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vm_ps_demo_nic_name')), '/ipConfigurations/ipconfig1')]",
-                        "properties": {
-                            "privateIPAddress": "10.0.0.4",
-                            "privateIPAllocationMethod": "Dynamic",
-                            "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_vm_ps_demo_ip_name'))]"
-                            },
-                            "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_vm_ps_demo_vnet_name'), 'default')]"
-                            },
-                            "primary": true,
-                            "privateIPAddressVersion": "IPv4"
-                        }
-                    }
-                ],
-                "dnsSettings": {
-                    "dnsServers": []
-                },
-                "enableAcceleratedNetworking": false,
-                "enableIPForwarding": false,
-                "disableTcpStateTracking": false,
-                "networkSecurityGroup": {
-                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vm_ps_demo_nsg_name'))]"
-                },
-                "nicType": "Standard",
-                "auxiliaryMode": "None",
-                "auxiliarySku": "None"
-            }
-        }
-    ]
+    "caller": "surentharansarathy@outlook.com",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/cde55d5d-db27-40cb-88b1-4713f699dc72/",
+        "iat": "1784790038",
+        "nbf": "1784790038",
+        "exp": "1784794057",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "acrs": "p1",
+        "aio": "AfQAC/8cAAAA5LzFX8f6K5w2v7r2cFQayWrKfcVr8SI6nH6BO5N+z8lN5wkhk7N/UVHgAI2UNYKDvHmI3a1+J+gTflu0p7WC9zORmGrlrJMks3iGxp2UKryLH9mY8/4xUghUibDXk1EAWWz8jqv2oapnb45OaOZzXqPfoVgyO+w7uWc16KmZ/5mwbIjyFfHP07rKzC/9oTqg2GYnqVcJErzL9ez3ts8iNr2dstgoFSM46uGd+DAApE0dWN7crhh1oXzbSPUzToM5a56hWR+4p0Ciak0HqECYmgaGSKNgisEIlz9yj6A7YIpJQxI8a2p4PNF6wCzEKEW5",
+        "altsecid": "1:live.com:0003000057B8E1CA",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd,mfa",
+        "appid": "b677c290-cf4b-4a8e-a60e-91ba650a4abe",
+        "appidacr": "0",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "surentharansarathy@outlook.com",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "sarathi",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "surentharan",
+        "groups": "cd2a4ffc-6751-4a0d-8712-bf3ed0242b53",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "live.com",
+        "idtyp": "user",
+        "ipaddr": "38.188.181.251",
+        "name": "surentharan sarathi",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "c5e6c42a-7ae8-4de2-9071-a34d1901b130",
+        "puid": "1003200613164BA8",
+        "rh": "1.AXAAXV3lzSfby0CIsUcT9pncckZIf3kAutdPukPawfj2MBMAAC1wAA.",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "sid": "006dbdda-2980-14d6-16c3-bd17e3902f70",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "ME0In759KMbiYtv-XLC7wXR86C4n1LueF4Nl83h4m34",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "cde55d5d-db27-40cb-88b1-4713f699dc72",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "live.com#surentharansarathy@outlook.com",
+        "uti": "9OqToDUT0UilEb8Oa3U-AA",
+        "ver": "1.0",
+        "wids": "62e90394-69f5-4237-9190-012177145e10,b79fbf4d-3ef9-4689-8143-76b194e85509",
+        "xms_act_fct": "3 5",
+        "xms_edov": "true",
+        "xms_ftd": "CYLxqQmjspDONzBMrzvJ1779l81Mzc8o3EqAILWUTKkBamFwYW5lYXN0LWRzbXM",
+        "xms_idrel": "1 10",
+        "xms_sub_fct": "3 2",
+        "xms_tcdt": "1784210069"
+    },
+    "correlationId": "bfdda627-5100-4a42-95b5-199b33772ff9",
+    "description": "",
+    "eventDataId": "4e512dfe-42c2-41ac-a6dd-b9b141ba5047",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2026-07-23T08:01:17.3424946Z",
+    "id": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourcegroups/rg-vm-ps/providers/Microsoft.Network/networkInterfaces/vm-ps-demo/events/4e512dfe-42c2-41ac-a6dd-b9b141ba5047/ticks/639203904773424946",
+    "level": "Informational",
+    "operationId": "f3071f07-e36a-42e6-b141-f04ff6e216c9",
+    "operationName": {
+        "value": "Microsoft.Network/networkInterfaces/write",
+        "localizedValue": "Create or Update Network Interface"
+    },
+    "resourceGroupName": "rg-vm-ps",
+    "resourceProviderName": {
+        "value": "Microsoft.Network",
+        "localizedValue": "Microsoft.Network"
+    },
+    "resourceType": {
+        "value": "Microsoft.Network/networkInterfaces",
+        "localizedValue": "Microsoft.Network/networkInterfaces"
+    },
+    "resourceId": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourcegroups/rg-vm-ps/providers/Microsoft.Network/networkInterfaces/vm-ps-demo",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2026-07-23T08:03:57Z",
+    "subscriptionId": "fe097717-d522-4cd6-afac-5946610885b2",
+    "tenantId": "cde55d5d-db27-40cb-88b1-4713f699dc72",
+    "properties": {
+        "eventCategory": "Administrative",
+        "entity": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourcegroups/rg-vm-ps/providers/Microsoft.Network/networkInterfaces/vm-ps-demo",
+        "message": "Microsoft.Network/networkInterfaces/write",
+        "hierarchy": "cde55d5d-db27-40cb-88b1-4713f699dc72/fe097717-d522-4cd6-afac-5946610885b2"
+    },
+    "relatedEvents": []
 }
