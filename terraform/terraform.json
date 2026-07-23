@@ -1,0 +1,94 @@
+{
+    "authorization": {
+        "action": "Microsoft.Compute/virtualMachines/write",
+        "scope": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourceGroups/rg-vm-terraform/providers/Microsoft.Compute/virtualMachines/vm-terraform-demo"
+    },
+    "caller": "surentharansarathy@outlook.com",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/cde55d5d-db27-40cb-88b1-4713f699dc72/",
+        "iat": "1784823771",
+        "nbf": "1784823771",
+        "exp": "1784829387",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "acrs": "p1",
+        "aio": "AfQAC/8cAAAAC/E7usR+HLw7la37MRESlKubzZXmLzf9X+3RG09/jP39BBnAFjHt6ZgYU/3Nk03qcHFP99YXzhBhTLrVVwpQvXMnrq3ZlX7Q9WArkL6d3GZagWICxMUs0xNh9FVbjU3tPFQ5g1zmKgfl1v6N5KRicygBE8oc1m8GizDATMtp2ijSFZpMUWV8d1nr50d4hOkunq8gWMumPCTnrhoEKA4nMpqUenPVGlzVxPTYOWgScNUpbXwD58OmYLx/0b0Oz4IfmpSeRd/76z5lqpre7DmSppySWN/AgNuL6xoayBfTk1HGHm1WemgDrc3ir3dfLJH7",
+        "altsecid": "1:live.com:0003000057B8E1CA",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd,mfa",
+        "appid": "b677c290-cf4b-4a8e-a60e-91ba650a4abe",
+        "appidacr": "0",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "surentharansarathy@outlook.com",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "sarathi",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "surentharan",
+        "groups": "cd2a4ffc-6751-4a0d-8712-bf3ed0242b53",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "live.com",
+        "idtyp": "user",
+        "ipaddr": "38.188.181.249",
+        "name": "surentharan sarathi",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "c5e6c42a-7ae8-4de2-9071-a34d1901b130",
+        "puid": "1003200613164BA8",
+        "rh": "1.AXAAXV3lzSfby0CIsUcT9pncckZIf3kAutdPukPawfj2MBMAAC1wAA.",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "sid": "006dbdda-2980-14d6-16c3-bd17e3902f70",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "ME0In759KMbiYtv-XLC7wXR86C4n1LueF4Nl83h4m34",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "cde55d5d-db27-40cb-88b1-4713f699dc72",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "live.com#surentharansarathy@outlook.com",
+        "uti": "CGYpIf5ylE6WwhmhID52AA",
+        "ver": "1.0",
+        "wids": "62e90394-69f5-4237-9190-012177145e10,b79fbf4d-3ef9-4689-8143-76b194e85509",
+        "xms_act_fct": "3 5",
+        "xms_edov": "true",
+        "xms_ftd": "FBpdkEmlzUZwN_4BgOXl6vZlbg0NVk3xDvHd8HGT3zgBa29yZWFzb3V0aC1kc21z",
+        "xms_idrel": "24 1",
+        "xms_sub_fct": "8 3",
+        "xms_tcdt": "1784210069"
+    },
+    "correlationId": "034e33c1-6c32-b7dc-c2d4-e8a46130ee1c",
+    "description": "",
+    "eventDataId": "e16ee59e-b02e-431e-a79d-9c37dc2b2723",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2026-07-23T16:48:57.2337115Z",
+    "id": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourcegroups/rg-vm-terraform/providers/Microsoft.Compute/virtualMachines/vm-terraform-demo/events/e16ee59e-b02e-431e-a79d-9c37dc2b2723/ticks/639204221372337115",
+    "level": "Informational",
+    "operationId": "a8abec3b-2b96-40ed-a552-bda558601a39",
+    "operationName": {
+        "value": "Microsoft.Compute/virtualMachines/write",
+        "localizedValue": "Create or Update Virtual Machine"
+    },
+    "resourceGroupName": "rg-vm-terraform",
+    "resourceProviderName": {
+        "value": "Microsoft.Compute",
+        "localizedValue": "Microsoft.Compute"
+    },
+    "resourceType": {
+        "value": "Microsoft.Compute/virtualMachines",
+        "localizedValue": "Microsoft.Compute/virtualMachines"
+    },
+    "resourceId": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourcegroups/rg-vm-terraform/providers/Microsoft.Compute/virtualMachines/vm-terraform-demo",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2026-07-23T16:51:41Z",
+    "subscriptionId": "fe097717-d522-4cd6-afac-5946610885b2",
+    "tenantId": "cde55d5d-db27-40cb-88b1-4713f699dc72",
+    "properties": {
+        "eventCategory": "Administrative",
+        "entity": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourcegroups/rg-vm-terraform/providers/Microsoft.Compute/virtualMachines/vm-terraform-demo",
+        "message": "Microsoft.Compute/virtualMachines/write",
+        "hierarchy": "cde55d5d-db27-40cb-88b1-4713f699dc72/fe097717-d522-4cd6-afac-5946610885b2"
+    },
+    "relatedEvents": []
+}
