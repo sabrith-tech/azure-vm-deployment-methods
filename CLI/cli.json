@@ -1,0 +1,94 @@
+{
+    "authorization": {
+        "action": "Microsoft.Compute/virtualMachines/write",
+        "scope": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourcegroups/rg-vm-cli/providers/Microsoft.Compute/virtualMachines/vm-cli-demo"
+    },
+    "caller": "surentharansarathy@outlook.com",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/cde55d5d-db27-40cb-88b1-4713f699dc72/",
+        "iat": "1784770965",
+        "nbf": "1784770965",
+        "exp": "1784776249",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "acrs": "p1",
+        "aio": "AfQAC/8cAAAAOcNCHcbj3zkC7U2xv3HJWchFqyhvDXrYe7R2I+5Bvtc4KfThvJ7gE595hQHD0vNHLMRR90nuDLBiJGVGYIwwY2OxLhZJ563SGqwg6v1driYaoGBJL4yNXk27yf5kx2yKS9NqVu/E2iRFJMaPf2LDAXn1KC31HdtltMihUk9P3t7NbbgOI8D1MRa1aqY2OOqNQsQQSzaDpIuTGXLgV+InrH+EdQVAl9/oVP8hYTfvAGUbRFW6yq+5svfFLwMvwmurnoZtPCA5NOqLiHKH6lV2piyZBOjOK3XEXpOhbd8SGh3f5l4/+z/Crm7dzztBAAd9",
+        "altsecid": "1:live.com:0003000057B8E1CA",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd,mfa",
+        "appid": "b677c290-cf4b-4a8e-a60e-91ba650a4abe",
+        "appidacr": "0",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "surentharansarathy@outlook.com",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "sarathi",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "surentharan",
+        "groups": "cd2a4ffc-6751-4a0d-8712-bf3ed0242b53",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "live.com",
+        "idtyp": "user",
+        "ipaddr": "38.188.181.249",
+        "name": "surentharan sarathi",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "c5e6c42a-7ae8-4de2-9071-a34d1901b130",
+        "puid": "1003200613164BA8",
+        "rh": "1.AXAAXV3lzSfby0CIsUcT9pncckZIf3kAutdPukPawfj2MBMAAC1wAA.",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "sid": "006dbdda-2980-14d6-16c3-bd17e3902f70",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "ME0In759KMbiYtv-XLC7wXR86C4n1LueF4Nl83h4m34",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "cde55d5d-db27-40cb-88b1-4713f699dc72",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "live.com#surentharansarathy@outlook.com",
+        "uti": "t5xcPk_aoE6x55vafANgAA",
+        "ver": "1.0",
+        "wids": "62e90394-69f5-4237-9190-012177145e10,b79fbf4d-3ef9-4689-8143-76b194e85509",
+        "xms_act_fct": "5 3",
+        "xms_edov": "true",
+        "xms_ftd": "4PZ4aRYGazVaSafvNX7cjulY8NCuY0VE1BwukD-zi-cBa29yZWFzb3V0aC1kc21z",
+        "xms_idrel": "1 2",
+        "xms_sub_fct": "3 10",
+        "xms_tcdt": "1784210069"
+    },
+    "correlationId": "42c00dcc-b337-4f3c-8500-b6a6cf76e599",
+    "description": "",
+    "eventDataId": "0ee6c9b2-1ce1-4ee3-adfd-3e22bccdc225",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2026-07-23T02:01:56.5382376Z",
+    "id": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourcegroups/rg-vm-cli/providers/Microsoft.Compute/virtualMachines/vm-cli-demo/events/0ee6c9b2-1ce1-4ee3-adfd-3e22bccdc225/ticks/639203689165382376",
+    "level": "Informational",
+    "operationId": "a72e4b4f-29ea-4b69-bc08-e497debd4aa8",
+    "operationName": {
+        "value": "Microsoft.Compute/virtualMachines/write",
+        "localizedValue": "Create or Update Virtual Machine"
+    },
+    "resourceGroupName": "rg-vm-cli",
+    "resourceProviderName": {
+        "value": "Microsoft.Compute",
+        "localizedValue": "Microsoft.Compute"
+    },
+    "resourceType": {
+        "value": "Microsoft.Compute/virtualMachines",
+        "localizedValue": "Microsoft.Compute/virtualMachines"
+    },
+    "resourceId": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourcegroups/rg-vm-cli/providers/Microsoft.Compute/virtualMachines/vm-cli-demo",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2026-07-23T02:03:09Z",
+    "subscriptionId": "fe097717-d522-4cd6-afac-5946610885b2",
+    "tenantId": "cde55d5d-db27-40cb-88b1-4713f699dc72",
+    "properties": {
+        "eventCategory": "Administrative",
+        "entity": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourcegroups/rg-vm-cli/providers/Microsoft.Compute/virtualMachines/vm-cli-demo",
+        "message": "Microsoft.Compute/virtualMachines/write",
+        "hierarchy": "cde55d5d-db27-40cb-88b1-4713f699dc72/fe097717-d522-4cd6-afac-5946610885b2"
+    },
+    "relatedEvents": []
+}
