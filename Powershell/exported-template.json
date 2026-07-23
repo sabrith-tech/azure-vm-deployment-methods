@@ -4,61 +4,61 @@
     "parameters": {
         "sshPublicKeys_vmpskey_name": {
             "defaultValue": "vmpskey",
-            "type": "String"
+            "type": "string"
         },
         "virtualMachines_vm_ps_demo_name": {
             "defaultValue": "vm-ps-demo",
-            "type": "String"
+            "type": "string"
         },
         "virtualNetworks_vm_ps_demo_name": {
             "defaultValue": "vm-ps-demo",
-            "type": "String"
+            "type": "string"
         },
         "networkInterfaces_vm_ps_demo_name": {
             "defaultValue": "vm-ps-demo",
-            "type": "String"
+            "type": "string"
         },
         "publicIPAddresses_vm_ps_demo_ip_name": {
             "defaultValue": "vm-ps-demo-ip",
-            "type": "String"
+            "type": "string"
         },
         "virtualNetworks_vm_ps_demo_vnet_name": {
             "defaultValue": "vm-ps-demo-vnet",
-            "type": "String"
+            "type": "string"
         },
         "networkInterfaces_vm_ps_demo_nic_name": {
             "defaultValue": "vm-ps-demo-nic",
-            "type": "String"
+            "type": "string"
         },
         "networkSecurityGroups_vm_ps_demo_name": {
             "defaultValue": "vm-ps-demo",
-            "type": "String"
+            "type": "string"
         },
         "networkSecurityGroups_vm_ps_demo_nsg_name": {
             "defaultValue": "vm-ps-demo-nsg",
-            "type": "String"
+            "type": "string"
         },
         "storageAccounts_azurergvmvmp072307290_name": {
             "defaultValue": "azurergvmvmp072307290",
-            "type": "String"
+            "type": "string"
         },
         "storageAccounts_azurergvmvmp072307350_name": {
             "defaultValue": "azurergvmvmp072307350",
-            "type": "String"
+            "type": "string"
         }
     },
     "variables": {},
     "resources": [
         {
             "type": "Microsoft.Compute/sshPublicKeys",
-            "apiVersion": "2025-11-01",
+            "apiVersion": "2021-03-01",
             "name": "[parameters('sshPublicKeys_vmpskey_name')]",
             "location": "centralindia",
             "properties": {}
         },
         {
             "type": "Microsoft.Network/networkSecurityGroups",
-            "apiVersion": "2025-07-01",
+            "apiVersion": "2017-06-01",
             "name": "[parameters('networkSecurityGroups_vm_ps_demo_name')]",
             "location": "centralindia",
             "properties": {
@@ -86,7 +86,7 @@
         },
         {
             "type": "Microsoft.Network/networkSecurityGroups",
-            "apiVersion": "2025-07-01",
+            "apiVersion": "2017-06-01",
             "name": "[parameters('networkSecurityGroups_vm_ps_demo_nsg_name')]",
             "location": "centralindia",
             "properties": {
@@ -115,7 +115,7 @@
         },
         {
             "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2025-07-01",
+            "apiVersion": "2017-08-01",
             "name": "[parameters('publicIPAddresses_vm_ps_demo_ip_name')]",
             "location": "centralindia",
             "sku": {
@@ -199,7 +199,7 @@
                 "name": "Standard_GRS",
                 "tier": "Standard"
             },
-            "kind": "StorageV2",
+            "kind": "Storage",
             "properties": {
                 "allowCrossTenantReplication": false,
                 "minimumTlsVersion": "TLS1_0",
@@ -237,7 +237,7 @@
                 "name": "Standard_GRS",
                 "tier": "Standard"
             },
-            "kind": "StorageV2",
+            "kind": "Storage",
             "properties": {
                 "allowCrossTenantReplication": false,
                 "minimumTlsVersion": "TLS1_0",
