@@ -1,0 +1,94 @@
+{
+    "authorization": {
+        "action": "Microsoft.Compute/virtualMachines/write",
+        "scope": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourcegroups/rg-vm-bicep/providers/Microsoft.Compute/virtualMachines/vm-bicep-demo"
+    },
+    "caller": "surentharansarathy@outlook.com",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/cde55d5d-db27-40cb-88b1-4713f699dc72/",
+        "iat": "1784819617",
+        "nbf": "1784819617",
+        "exp": "1784823926",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "acrs": "p1",
+        "aio": "AfQAC/8cAAAARzZzUKV8REG/l9dPg5JsMwGegggJuNnqsxHXwTH1GujU9mjlG1oyry6qdcndRrKNZQ09gYSrjBPug8+mgr8ud9ip6TtjBqV17Ete2ezoWRAsCHv3Ke2lAjkVj/aBN2n3mM6bUHs3a8ibTdTvopZbj6nLyzOM/TF4CkrFQXiZlCypvB5oQgOzBWDoBGSGPfXhKIu5oclOBWN4YWg8FAHFV6z1S7+vmq3DpmMrIISuvXUQMJ4VFiYlqZSdYXfL5jdkS44CdPEdDBYZt7EX7pI5yFbyuftvO5iBYcv5FbX1DONxsfSp7w9aYcoyN9uQf0r2",
+        "altsecid": "1:live.com:0003000057B8E1CA",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd,mfa",
+        "appid": "b677c290-cf4b-4a8e-a60e-91ba650a4abe",
+        "appidacr": "0",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "surentharansarathy@outlook.com",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "sarathi",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "surentharan",
+        "groups": "cd2a4ffc-6751-4a0d-8712-bf3ed0242b53",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "live.com",
+        "idtyp": "user",
+        "ipaddr": "38.188.181.249",
+        "name": "surentharan sarathi",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "c5e6c42a-7ae8-4de2-9071-a34d1901b130",
+        "puid": "1003200613164BA8",
+        "rh": "1.AXAAXV3lzSfby0CIsUcT9pncckZIf3kAutdPukPawfj2MBMAAC1wAA.",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "sid": "006dbdda-2980-14d6-16c3-bd17e3902f70",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "ME0In759KMbiYtv-XLC7wXR86C4n1LueF4Nl83h4m34",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "cde55d5d-db27-40cb-88b1-4713f699dc72",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "live.com#surentharansarathy@outlook.com",
+        "uti": "yX0HklVGLkiUuWQSFaNUAA",
+        "ver": "1.0",
+        "wids": "62e90394-69f5-4237-9190-012177145e10,b79fbf4d-3ef9-4689-8143-76b194e85509",
+        "xms_act_fct": "3 5",
+        "xms_edov": "true",
+        "xms_ftd": "3LHaKEjWamRmo1ASa6KVXo7tqVxSvJ5xxloAfTpWsFEBa29yZWFjZW50cmFsLWRzbXM",
+        "xms_idrel": "1 24",
+        "xms_sub_fct": "14 3",
+        "xms_tcdt": "1784210069"
+    },
+    "correlationId": "098f1e3f-87f3-49a7-bd5a-d99aed73c08f",
+    "description": "",
+    "eventDataId": "1637063e-477e-4ba2-8c89-4f44e1cb653a",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2026-07-23T16:09:03.660787Z",
+    "id": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourcegroups/rg-vm-bicep/providers/Microsoft.Compute/virtualMachines/vm-bicep-demo/events/1637063e-477e-4ba2-8c89-4f44e1cb653a/ticks/639204197436607870",
+    "level": "Informational",
+    "operationId": "e565a3ac-39cb-4aa3-9577-68b0f0788e11",
+    "operationName": {
+        "value": "Microsoft.Compute/virtualMachines/write",
+        "localizedValue": "Create or Update Virtual Machine"
+    },
+    "resourceGroupName": "rg-vm-bicep",
+    "resourceProviderName": {
+        "value": "Microsoft.Compute",
+        "localizedValue": "Microsoft.Compute"
+    },
+    "resourceType": {
+        "value": "Microsoft.Compute/virtualMachines",
+        "localizedValue": "Microsoft.Compute/virtualMachines"
+    },
+    "resourceId": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourcegroups/rg-vm-bicep/providers/Microsoft.Compute/virtualMachines/vm-bicep-demo",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2026-07-23T16:12:04Z",
+    "subscriptionId": "fe097717-d522-4cd6-afac-5946610885b2",
+    "tenantId": "cde55d5d-db27-40cb-88b1-4713f699dc72",
+    "properties": {
+        "eventCategory": "Administrative",
+        "entity": "/subscriptions/fe097717-d522-4cd6-afac-5946610885b2/resourcegroups/rg-vm-bicep/providers/Microsoft.Compute/virtualMachines/vm-bicep-demo",
+        "message": "Microsoft.Compute/virtualMachines/write",
+        "hierarchy": "cde55d5d-db27-40cb-88b1-4713f699dc72/fe097717-d522-4cd6-afac-5946610885b2"
+    },
+    "relatedEvents": []
+}
